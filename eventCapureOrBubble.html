@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capture and Bubble example</title>
+</head>
+
+<body>
+    <div id="topDiv" onclick="alert('tod div clicked');" style="height: 500px; width: 100%; background-color: red;">
+        <div onclick="alert('tops inner first div clicked');"
+            style="height: 50%; width: 50%; background-color: yellow;">
+            <div id="capture">
+                Click on me as capture phase
+            </div>
+            <div id="bubble">
+                Click on me as bubble phase
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let capEl = document.getElementById("capture");
+        let bubEl = document.getElementById("bubble");
+        capEl.addEventListener("click", (event) => {
+            console.log("cap Element click");
+            alert("cap Element click");
+        }, true);
+
+        bubEl.addEventListener("click", (event) => {
+            console.log("bub Element click");
+            alert("bub Element click");
+        });
+
+    </script>
+</body>
+
+</html>
